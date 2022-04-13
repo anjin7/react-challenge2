@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { RecoilRoot } from 'recoil';
 import ToDoList from "./components/ToDoList";
 
 const GlobalStyle = createGlobalStyle`
@@ -68,10 +69,10 @@ a {
 
 function App() {
   return (
-    <>
+    <RecoilRoot>
       <GlobalStyle />
       <ToDoList />
-    </>
+    </RecoilRoot>
   );
 }
 
