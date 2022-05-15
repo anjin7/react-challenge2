@@ -31,9 +31,9 @@ interface IAreaProps {
 const Area = styled.div<IAreaProps>`
   background-color: ${(props) =>
     props.isDraggingOver
-      ? "#dfe6e9"
+      ? "#dfe5e9"
       : props.isDraggingFromThis
-      ? "#b2bec3"
+      ? "#c1c3da"
       : "transparent"};
   flex-grow: 1;
   transition: background-color 0.3s ease-in-out;
@@ -88,7 +88,7 @@ function Board({ toDos, boardId }: IBoardProps) {
         <input
           {...register("toDo", { required: true })}
           type="text"
-          placeholder={`Add task on ${boardId}`}
+          placeholder={`Add ${boardId}`}
         />
       </Form>
       <Droppable droppableId={boardId}>
