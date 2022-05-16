@@ -31,7 +31,7 @@ interface IAreaProps {
 const Area = styled.div<IAreaProps>`
   background-color: ${(props) =>
     props.isDraggingOver
-      ? "#dfe5e9"
+      ? "#e7ebf3"
       : props.isDraggingFromThis
       ? "#c1c3da"
       : "transparent"};
