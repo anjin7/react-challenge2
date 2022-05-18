@@ -68,6 +68,7 @@ interface IForm {
 function Board({ toDos, boardId }: IBoardProps) {
   const setToDos = useSetRecoilState(toDoState);
   const { register, setValue, handleSubmit } = useForm<IForm>();
+  const saveToDo = ({ toDo }: IForm) => localStorage.setItem(toDo, JSON.stringify(toDo));
   const onValid = ({ toDo }: IForm) => {
     const newToDo = {
       id: Date.now(),
@@ -80,7 +81,18 @@ function Board({ toDos, boardId }: IBoardProps) {
       };
     });
     setValue("toDo", "");
+    saveToDo({ toDo });
+
+    const savedToDos = localStorage.getItem(toDo);
+    if (savedToDos !== null) {
+      const parsedToDos = JSON.parse(savedToDos);
+      toDos = parsedToDos;
+      parsedToDos.forEach(setToDos);
+    };
   };
+  
+  
+  
   return (
     <Wrapper>
       <Title>{boardId}</Title>
