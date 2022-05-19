@@ -68,7 +68,7 @@ interface IForm {
 function Board({ toDos, boardId }: IBoardProps) {
   const setToDos = useSetRecoilState(toDoState);
   const { register, setValue, handleSubmit } = useForm<IForm>();
-  const saveToDo = ({ toDo }: IForm) => localStorage.setItem(toDo, JSON.stringify(toDo));
+  const saveToDo = ({ toDo }: IForm) => localStorage.setItem(toDo, JSON.stringify(toDos));
   const onValid = ({ toDo }: IForm) => {
     const newToDo = {
       id: Date.now(),
